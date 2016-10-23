@@ -2,9 +2,6 @@
 
 from rover import *
 
-# import sys, traceback
-
-# from plato import *
 
 def imprime_boas_vindas(nome):
 	print "\n\t===== Simulação Rovers da NASA =====\n"
@@ -57,8 +54,6 @@ class InicializadorDeRovers(object):
 			rover = Rover()
 			rover.rover_id = id_sequencial
 			segunda_linha = lista_com_inputs[0].split(" ")
-			# print segunda_linha
-			# print type(segunda_linha)
 			rover.posicao =  list(int(valor) for valor in segunda_linha[0:2])
 			rover.direcao = segunda_linha[-1]
 			terceira_linha = lista_com_inputs[1]
@@ -80,7 +75,9 @@ class InicializadorDeRovers(object):
 				 			rov.girar_rover(rov.direcao,movimento)
 				 		saida_final = posicao_final.join(str(valor) for valor in rov.posicao[:2])+ " " + rov.direcao
 					resultado.write(saida_final+'\n')
+			print "=========================================================================="
 			print "Acabamos por aqui.. Por Favor, confira o arquivo 'resultado.txt'. Obrigado\n"
+			print "=========================================================================="
 		except (TypeError,IOError) as error:
 			print "\n** Houve um erro na hora de abrir o arquivo: %s **" % error
 
@@ -106,4 +103,3 @@ if __name__ == '__main__':
 		inicia.inicia_rovers()
 	except (AttributeError, TypeError, IOError, UnboundLocalError) as error:
 		print "\n** Oops.. Algo aconteceu durante a execução do programa, confirme se você informou tudo corretamente. %s **\n" % error
-	# sys.exit(0)
